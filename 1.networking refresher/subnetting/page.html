@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>subnetting</title>
+</head><body>netmask in kali<br/>
+subnet mask in windows<br/>
+<img src="image 2.png" /><br/>
+<br/>
+Switching has to be done in order like <br/>
+128 64 32 16 8 4 2 1 <br/>
+0 &nbsp; &nbsp; 0 &nbsp; 0 &nbsp; 0 &nbsp;0 0 0 0<br/>
+so u have to start switching from lhs cant switch from rhs<br/>
+u cant just do <br/>
+<br/>
+128 64 32 16 8 4 2 1 <br/>
+1 &nbsp; &nbsp; 0 &nbsp; 0 &nbsp; 0 &nbsp;0 0 1 0<br/>
+<br/>
+Number of devices u can have on your private network depends on your subnet ke digits indirectly<br/>
+&nbsp;<b>255.255.255.0 is callled a /24 network<br/>
+</b><b><br/>
+</b>24 basically denoted number of bts which are turned to 1 's<b><br/>
+</b><b><br/>
+</b>In our network we got number of hosts avaliable as 2^8 coz it depends on number of bits(0's) available<br/>
+to us or basicallly the number of bits turned off<br/>
+<br/>
+so our netwrok named 192.168.... has 256 hosts ki power when we have a subnet of /24<br/>
+coz /24 means 24 out of the 32 are switched on so we only have8 bits turned off that is 2^8=256 <br/>
+<br/>
+When a client gives u a subnet they might just write like this 192.168.1.0/24.<br/>
+so should be 256-2 hosts in the netwrok &nbsp;<br/>
+<br/>
+eg if given 10.1.0.0/16<br/>
+so iska subnet would be 255.255.0.0<br/>
+well every time u have 255 that number is locked down in place meaning 10 is locked down and 1 is also <br/>
+locked down too<br/>
+<br/>
+<b>/24 and /16 are the most common<br/>
+<br/>
+</b>so thus in our above photo we had 255.255.255.0 meaning we haeve /24 netwrok and 256-2 hosts<br/>
+2 subtracted coz we have a network id and a broadcast id namely 192.168.50.128 and 192.168.50.255<br/>
+we are .128 we could be anywhere from .1 to .254 in this network we say like this coz usually .0 is for network ID and .255 is for broadcast so 2 places gone na hence so said<br/>
+<br/>
+<br/>
+use ipaddressguide.com this site for everything here<br/>
+for calculating and stuff<br/>
+<br/>
+</body></html>

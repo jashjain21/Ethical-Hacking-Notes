@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>users and priveleges</title>
+</head><body><img src="image.png" /><br/>
+<b>drwxr-xr-x</b><br/>
+d:directory<br/>
+rwx:read write execute<br/>
+r-x :permisions with the grp<br/>
+r-x:permisiions with the user<br/>
+<br/>
+ls -la /tmp/ : has read write and execite all 3 permissions required for penetration testing<br/>
+- stands for file<br/>
+d stands for directory<br/>
+created a file hello.txt:<br/>
+<img src="image 2.png" /><br/>
+thus has read write for us and read only for everiyone else<br/>
+<br/>
+to read what is in this file<br/>
+<img src="image 3.png" /><br/>
+<br/>
+starting with '-' &nbsp;: then its a file<br/>
+starting with 'd' :then its a directory<br/>
+<br/>
+while doing pentesting actually upload files in tmp cz that is where u can execute those files coz tmp has all permissions<br/>
+<br/>
+chmod 777 :for granting all access permissions<br/>
+<img src="image 4.png" /><br/>
+<br/>
+<br/>
+or even chmod +x gives the same tthing as above<br/>
+<img src="image 5.png" /><br/>
+<br/>
+created a newuser<br/>
+<img src="image 6.png" /><br/>
+passwd:john<br/>
+(password written for future reference)<br/>
+<br/>
+cat /etc/passwd:<br/>
+op ki last line is<br/>
+<img src="image 7.png" /><br/>
+<br/>
+to see the the passwords <br/>
+type<br/>
+cat/etc/shadow<br/>
+<br/>
+last line op:<br/>
+<img src="image 8.png" /><br/>
+<br/>
+<b>its in hash format bt if u hgave access to shadow file then good chance of cracking the system too<br/>
+</b><br/>
+&nbsp;to swtich users<br/>
+<img src="image 9.png" /><br/>
+&nbsp;<br/>
+u cant change password of kali from john<br/>
+<img src="image 10.png" /><br/>
+<br/>
+<img src="image 11.png" /><br/>
+Thus u need john in the sudoers file<br/>
+<br/>
+</body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10.Gainning shell access</title>
+</head><body>so far all he have is credentials na <br/>
+so boot up msfconsole <br/>
+if we have smb open and have username and password and that machine has a local adminsitrator<br/>
+we can use psexec to gain a shell <br/>
+<img src="image.png" /><br/>
+<br/>
+rhosts is fcastle machine <br/>
+<img src="image 2.png" /><br/>
+<br/>
+pparker:.144<br/>
+marvel:.137<br/>
+fcastle:<br/>
+<img src="image 3.png" /><br/>
+<img src="image 4.png" /><br/>
+<br/>
+thus try chanigngi the targets <br/>
+<img src="image 5.png" /><br/>
+thus virus detected aaya na <br/>
+so windiws defender might have been turned on automatically<br/>
+<img src="image 6.png" /><br/>
+so psexec is getting blocked<br/>
+<img src="image 7.png" /><br/>
+<br/>
+even here i got actually picked up <br/>
+<img src="image 8.png" /><br/>
+even these both didnt work out <br/>
+so we need other options too <br/>
+trying poowershell version of psexec<br/>
+even that dindt work<br/>
+psexec is the nosiy one when it comes to antiviryus<br/>
+<br/>
+start first wtith smbexec and wmiexec <br/>
+anf then psexec as its damn noisy<br/>
+<br/>
+<br/>
+<br/>
+to run meterpreter on windows disable defender <br/>
+thus this worked <br/>
+<img src="image 9.png" /><br/>
+<br/>
+<img src="image 10.png" /><br/>
+<br/>
+</body></html>

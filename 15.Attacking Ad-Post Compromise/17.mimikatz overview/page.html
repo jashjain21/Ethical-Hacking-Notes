@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>17.Mimikatz overview</title>
+</head><body><img src="image.png" width="803" height="400" /><br/>
+https://github.com/gentilkiwi/mimikatz<br/>
+went to this<br/>
+channces are this tool can get caught up on the machine so there are even other tools like Invoke-Mimikatz which is a powerhsell tool so u can upload it to ur windows machine <br/>
+or u can run it via iex which is way to download files via powershell and u can download and execute without even touchign the disc<br/>
+<br/>
+from below site donwload to domain controller<br/>
+https://github.com/gentilkiwi/mimikatz/releases<br/>
+we ve compromised the DC and now what we can do and how to get a golden ticket and stuff<br/>
+<img src="image 2.png" /><br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+debug means its allowign us to debug &nbsp;process<br/>
+<img src="image 4.png" /><br/>
+doing this<br/>
+<img src="image 5.png" /><br/>
+so this gives us ntlm hash of any user which has logged in since the last reboot<br/>
+<img src="image 6.png" /><br/>
+thus administrator is the onlu account whihc i have logged in into<br/>
+here wdigest is imp and was there in windows 7 and befre and stored password in clear text<br/>
+so even now in latest windows feature is just off and we can turn it on<br/>
+and wait for somebody to logon to the computer <br/>
+and we ll find the password then<br/>
+<img src="image 7.png" /><br/>
+thus &nbsp;these both didnt work out<br/>
+<img src="image 8.png" /><br/>
+/patch is imp very much<br/>
+lsa means local security authority<br/>
+its protected subsystme in windows <br/>
+take all such ntlm hashes and crack them and give client a percent of how manty were u able to crack <br/>
+u need the above krbtgt ka ntlm for next attack <br/>
+<br/>
+</body></html>

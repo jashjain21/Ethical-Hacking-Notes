@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>scanning with nmap</title>
+</head><body>we will use login:john and<br/>
+&nbsp; &nbsp; &nbsp; &#09;&#09; passwd:TwoCows2<br/>
+basically we will not login the machine we will rather attack the machine through kali apna<br/>
+<br/>
+when pinged the machine<br/>
+<img src="image.png" /><br/>
+<br/>
+192.168.50.129 is my kioptrix ip address hi <br/>
+(thus kioptrix machine ka ip mila na )<br/>
+<br/>
+<br/>
+now see kali ka ip adress<br/>
+192.168.50.128 hai &nbsp;<br/>
+<img src="image 2.png" /><br/>
+<br/>
+do arp-scan -l<br/>
+and u get following results(search for vmware wale results)<br/>
+<img src="image 3.png" /><br/>
+thus aise bhi kioptrix ka ip address mil sakta hai na <br/>
+<br/>
+so we had 2 methods na directly by kioptrix login or by arp scan<br/>
+next method is :<br/>
+<br/>
+another method for getting ip address of kioptrix<br/>
+USING NETDISCOVER:(we will sweep entire subnet of /24)<br/>
+typed :netdiscover -r 192.168.50.0/24<br/>
+<br/>
+<img src="image 4.png" /><br/>
+aisa aaya ignore 1st 2 coz they dont look similar to kali ka ip address<br/>
+and last one ko bhi leave that is like bandwith id na <br/>
+so only left is<br/>
+192.168.50.129<br/>
+which is ip address that we will attack<br/>
+<br/>
+just like tcp handshake of syn synack ack <br/>
+we will use nmap (network mapper)<br/>
+will scan for open ports and services <br/>
+(process used is stealth scanning)<br/>
+<br/>
+used to be written like:nmap -sS now its done by default<br/>
+was called stealth coz it wasnt detectable bt now most areas with good security can detect it <br/>
+bt it still work s many times(80 percent)<br/>
+<br/>
+stealthscan does <br/>
+syn synack rst<br/>
+means when connection accepted u just say reset flag<br/>
+means we dont establish a connection.<br/>
+Due to this we arent making a connection bt we are identifying them as open<br/>
+<br/>
+cz we arent making conncection with them hence its called stealthy<br/>
+we type:<br/>
+nmap -T4 -p- -A<br/>
+(u ve speed between 1 and 5,1 is slow and 5 is fast)<br/>
+so used 4 (author's preference even in hackthebox)<br/>
+<br/>
+-p- means i wanna scan all ports<br/>
+if u just wrote nmap - T4 -A<br/>
+(then it would scan just top 1000 ports)<br/>
+<br/>
+coz total ports is 65535 na we wanna scan every port na <br/>
+if u just wanted to scan web server u could have written<br/>
+nmap -T4 -p 80,443 -A (if even wanna scan for dns use port 53)<br/>
+<br/>
+-A means everythong means u want version info ,os ,fingerprinting,system info etc<br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+<br/>
+typed in new tab nmap --help<br/>
+<img src="image 6.png" /><br/>
+-Pn means even if host not responding to your ping u treat him as if he is online(even if they arent responding to your ping requests u still wannna ping them)<br/>
+-sn is also good for scanning all the ports <br/>
+<br/>
+the 2 most comon scans we will use is <br/>
+<img src="image 7.png" /><br/>
+sS and sU used 99 % of the time <br/>
+&nbsp;<br/>
+sS - is our stealth scan hi <br/>
+<br/>
+sU is for udp<br/>
+so in new tab write nmap -sU -T4 -p 192.168.50.129<br/>
+(the order of these sU,T4, p and all doesnt really matter)<br/>
+<br/>
+removed -A coz it takes a long time to scan<br/>
+and only considering top 1000 ports<br/>
+(coz udp takes a long time ti scan coz its connection less protocol it doesnt have instance response time)<br/>
+<br/>
+meanwhile reuslts aaye<br/>
+<img src="image 8.png" /><br/>
+<br/>
+it took so long, instead do nmap without -A and once u get the ports like in pic above 22/tcp, 80/tcp and so on sirf vohi ports pe do nmap with -A<br/>
+(like instead of going to every single port and attempting to get every info by this method we will extract full info from these ports hi) <br/>
+<br/>
+we see in above pic port 22 open and ssh is running there <br/>
+apache is runnig on port 80 and port 443<br/>
+at itmes these scans also give u the os running bt that is percentage like could be 80 percent that machine running kali<br/>
+<br/>
+THUS SCANNING COMPLETE<br/>
+now we will attack certain ports and exploits dhundenge <br/>
+<br/>
+<br/>
+<br/>
+</body></html>

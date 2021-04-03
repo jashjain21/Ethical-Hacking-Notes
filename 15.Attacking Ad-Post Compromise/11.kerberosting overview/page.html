@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>11.kerberosting overview</title>
+</head><body>domain controller called as key distrubtion center(KTC)<br/>
+<img src="image.png" /><br/>
+<br/>
+tgt(ticket granting ticket)<br/>
+ntlm hash is supllied by the user which is the username and password<br/>
+it can be any valid user not necesarily admin hi <br/>
+<br/>
+application server is like sql or antivirus jaisa kuch<br/>
+this service has a spn which is a service prinicipal name<br/>
+the server when it sends us the TGS encrypted doesnt know that whether we have access or not to the service it directly sends us once we gvive it our tgt<br/>
+5,6 steps in pic arent importsant tbh<br/>
+we get server's account hash too and thats a pb coz that casn be cracked na <br/>
+<br/>
+tool used is GetUserSPNs<br/>
+and would use hashcat<br/>
+<br/>
+</body></html>

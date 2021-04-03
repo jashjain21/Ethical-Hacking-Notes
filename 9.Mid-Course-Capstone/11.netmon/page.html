@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>11.Netmon</title>
+</head><body>nmap results<br/>
+<img src="image.png" width="500" height="403" /><br/>
+<br/>
+<img src="image 2.png" width="450" height="193" /><br/>
+\<br/>
+since ftp is open u can upload a file there bt cant execute it though<br/>
+u can only put and get files<br/>
+tried the deafualt credentials<br/>
+<img src="image 4.png" width="650" height="305" /><br/>
+PRTG Network Monitor 18.1.37.13946 <br/>
+this is our version<br/>
+https://www.exploit-db.com/exploits/46527<br/>
+could try this bt its only for authenticated hi<br/>
+so trying to find credentials now <br/>
+https://kb.paessler.com/en/topic/463-how-and-where-does-prtg-store-its-data<br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+thus got a hidden directory<br/>
+went into all users <br/>
+application<br/>
+data<br/>
+paessler<br/>
+prtg network manager<br/>
+<img src="image 6.png" /><br/>
+bt there is a catch u can fo directly in the desired folder<br/>
+Application data\Paessler\PRTG Network Monitor\<br/>
+<img src="image 7.png" /><br/>
+saw those downloaded files<br/>
+<img src="image 9.png" /><br/>
+<br/>
+<img src="image 8.png" width="350" height="251" /><br/>
+bt password is encrypted<br/>
+same issue with .old file<br/>
+<img src="image 10.png" /><br/>
+<br/>
+found in .bak file<br/>
+and it worked on site<br/>
+<img src="image 11.png" width="600" height="220" /><br/>
+<br/>
+start burpsuite<br/>
+<img src="image 3.png" /><br/>
+this was from https://www.exploit-db.com/exploits/46527<br/>
+so lets grab the cookie<br/>
+so download the script <br/>
+<img src="image 12.png" /><br/>
+copy this cookie<br/>
+<img src="image 13.png" width="750" height="295" /><br/>
+<br/>
+thus it worked <br/>
+also psexec couldve been used in meterpreter<br/>
+bt there is another way too called impacket<br/>
+<img src="image 14.png" /><br/>
+<br/>
+this stuff is picked up less lightly by machines as compared to msfconsole and all<br/>
+<img src="image 15.png" /><br/>
+<br/>
+boom<br/>
+<img src="image 16.png" /><br/>
+we did it<br/>
+tried same with wmiexec.py<br/>
+<img src="image 17.png" /><br/>
+<br/>
+also smbexec works the same way <br/>
+so psexec gives u full permission as compared ot other 2<br/>
+if u are against antivirus something so these 3 work better than meterpreter shell<br/>
+sso like when we trie dpassowrds and stuff chage password ends with 2018 to 2019 coz thats what many users usually do <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

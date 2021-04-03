@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6.Smb relay attack overview</title>
+</head><body><img src="image.png" /><br/>
+<br/>
+smb signing is a packet level protocol <br/>
+so if its enabled sp when u try to relay credentials its gonna say hey u arne treallyl that person this packets not signed by u so u wont be able to come in<br/>
+if its disabled so it doesnt check the authenticity<br/>
+<br/>
+eg frank castle is admin on both machines so take his hash fdrom one machine and relay it to the other cant relay it back to the same machine <br/>
+<br/>
+so in responder.conf turn of smb and http so that we are listneing and not respinding <br/>
+and then boot up responder <br/>
+<img src="image 2.png" /><br/>
+now configure ntlmrelayx<br/>
+<br/>
+it takes the relay passes it to a target file that u specify sm2support so that can incorporate anything with smb2<br/>
+so after all this u basically get a sam(shadow) file of all the hashes of the local users<br/>
+<br/>
+befire all his on both windows machines turn on network discovery<br/>
+</body></html>

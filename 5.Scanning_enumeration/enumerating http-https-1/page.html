@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enumerating HTTP/HTTPS-1</title>
+</head><body>we had ports <br/>
+22<br/>
+80<br/>
+443<br/>
+139<br/>
+11<br/>
+32768<br/>
+so we need to think abt point of attack <br/>
+sir feels ports 80 and 443 and 139 and sometimes 445 also <br/>
+coz these are commonly found with exploits <br/>
+in 2017 wannacry virus was there it utilised a flaw in smb and also websites have flwed<br/>
+<br/>
+port 22 was ssh which isnt so prone to flaws<br/>
+remote code executuon is not usually there on ssh<br/>
+(means running exploit and getting shell back)<br/>
+<br/>
+not common to attack ssh <br/>
+it isnt juicy kinda <br/>
+<br/>
+so lets go for 80 and 443<br/>
+<br/>
+we ll go for the website means search its ip address online<br/>
+<img src="image.png" width="958" height="450" /><br/>
+in network penetration or web penetration test &nbsp;<br/>
+if we such an automatic page then it is an automatic finding<br/>
+it isnt exploitable <br/>
+Here we got to know its running apache and red hat linux<br/>
+so if a client has a default web page like this we would wanna know ki is there a directory associated <br/>
+<br/>
+it could be they arent hostng something and just put their default page on this site <br/>
+<br/>
+So this is poor hygiene<br/>
+<br/>
+when we clicked on the documentation link<br/>
+<img src="image 2.png" width="700" height="328" /><br/>
+they should have given a page like error 404 not found bt they disclosed this info <br/>
+&nbsp;Apache/1.3.20 Server at 127.0.0.1 Port 443<br/>
+<br/>
+now we ll do web vulnerability scannner <br/>
+using nikto <br/>
+if like website has good security it will automatically block your nikto<br/>
+(bt thats not common)<br/>
+<img src="image 3.png" /><br/>
+so trying http instead<br/>
+<img src="image 4.png" /><br/>
+these were the findings to be written in a report <br/>
+<br/>
+the remote vulnerabilities are the ones whuch we can attack na <br/>
+<img src="image 5.png" width="900" height="79" /><br/>
+like the ones above<br/>
+<br/>
+also this below<br/>
+<img src="image 6.png" /><br/>
+trace is potenitially vulnerable which could lead to cross &nbsp;site scripting (its just info for us now coz havent studied it yet na)<br/>
+saving all info to a folder named kioptrix<br/>
+</body></html>

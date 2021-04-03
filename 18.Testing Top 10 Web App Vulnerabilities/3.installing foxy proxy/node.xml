@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>3.installing foxy proxy</string>
+  <key>nodeid</key><string>ebdf3d92-1776-4399-975b-c5a1755725e4</string>
+  <key>modified_time</key><integer>1616745875</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1616736755</integer>
+  <key>order</key><integer>3</integer>
+</dict>
+</node>

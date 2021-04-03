@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>scripting with bash</title>
+</head><body>we ll build ping sweeper script<br/>
+to ping only once:<br/>
+<img src="image.png" /><br/>
+stored it in a file named ip.txt using :<br/>
+ping 192.168.50.128 -c 1 &gt; ip.txt<br/>
+<br/>
+<br/>
+if tried some other ping then u wouldnt recieve back a packet na<br/>
+<img src="image 2.png" /><br/>
+<br/>
+so u need to capture ip adrress from ip.txt <br/>
+<img src="image 3.png" /><br/>
+<br/>
+to take line containg this<br/>
+<img src="image 4.png" /><br/>
+<br/>
+to just have ip address<br/>
+<img src="image 5.png" /><br/>
+-d stands for delimiter (what we ll be cutting on) <br/>
+here it is spaces <br/>
+-f stands for what field we want back from the cut<br/>
+(here field 4 we want na)<br/>
+&nbsp;to remove the semicolon :<br/>
+<img src="image 6.png" /><br/>
+tr stands for translate<br/>
+<br/>
+<br/>
+writing the script<br/>
+<img src="image 7.png" /><br/>
+/bash at the end for the bash script if python script so write pyhton<br/>
+<img src="image 8.png" /><br/>
+for loop is for variable ip in a sequence 1 to 254 we ll do something (here ping)<br/>
+<br/>
+$1 is user input <br/>
+so while running script type foll in kali<br/>
+./ipsweep.sh 192.168.50<br/>
+<br/>
+or rather hard code instead of $1 write 192.168.50<br/>
+<br/>
+now this script has only read and write permission give it execute permission too<br/>
+<br/>
+finally:<br/>
+<img src="image 9.png" /><br/>
+<br/>
+modified with if else;<br/>
+<img src="image 10.png" /><br/>
+&nbsp;<br/>
+so when error made:<br/>
+<img src="image 11.png" /><br/>
+<br/>
+now for say we wanna do an nmap scan on all of the ip lists at once:use for loop na<br/>
+<img src="image 12.png" /><br/>
+-sS means stealthscan <br/>
+-p 80 means port 80<br/>
+using T4<br/>
+<br/>
+<img src="image 13.png" /><br/>
+<br/>
+and then declare ip address using $ip<br/>
+</body></html>

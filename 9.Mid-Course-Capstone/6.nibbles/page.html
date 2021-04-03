@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6.Nibbles</title>
+</head><body>nmap results are as follows<br/>
+<img src="image.png" /><br/>
+<br/>
+so start with port 80 its the way in and port 22 will help inside <br/>
+version of ssh isnt hte way in usually<br/>
+information gathering:Ubuntu<br/>
+Search for exploits of Apache httpd 2.4.18<br/>
+<img src="image 2.png" width="348" height="100" /><br/>
+<br/>
+linux/local/46676.php<br/>
+<br/>
+local means u have to be on the machine in order to exploit it so we are here after remote exploits not even denial of service types<br/>
+<img src="image 3.png" /><br/>
+<br/>
+this machine is more like a ctf types <br/>
+so we can try nikto or dirbuster types <br/>
+or could do enumeration<br/>
+when u do view page source there are stuff hidden in it at times also<br/>
+<img src="image 4.png" width="500" height="234" /><br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+so went to http://10.10.10.75/nibbleblog/<br/>
+<img src="image 6.png" width="532" height="250" /><br/>
+<br/>
+googled its source code bt couldnt find anything of importance <br/>
+<img src="image 7.png" width="650" height="103" /><br/>
+<br/>
+2nd one is .rb meaning metaspploit module is availanle <br/>
+SQL inection can give and basically dump a ton of stuff or at times give u nothinh<br/>
+2nd one is more juicy for remote code exceution<br/>
+used following stuff<br/>
+<img src="image 8.png" /><br/>
+<br/>
+<img src="image 9.png" /><br/>
+<br/>
+hence u gotta be authenticated so randomly tried /admin.php it worked though<br/>
+<img src="image 10.png" width="650" height="305" /><br/>
+<br/>
+so technical way is to go to durbuster and do directory busting<br/>
+<img src="image 11.png" /><br/>
+<br/>
+<img src="image 12.png" /><br/>
+<br/>
+got our results<br/>
+<br/>
+since it is soeone ka personal blog gotta do something abt passwords like using the most common passwords and stuff<br/>
+username and password were <br/>
+admin<br/>
+nibbles<br/>
+author knew abt it hence so<br/>
+<img src="image 13.png" width="700" height="328" /><br/>
+<br/>
+got the nibbleblog version written at the end<br/>
+<br/>
+<img src="image 14.png" width="700" height="246" /><br/>
+<br/>
+<img src="image 15.png" width="700" height="261" /><br/>
+<br/>
+<br/>
+set targeturi as /nibbleblog<br/>
+<img src="image 16.png" /><br/>
+<br/>
+its basically uploading image.php onto the net <br/>
+<img src="image 17.png" width="600" height="281" /><br/>
+<br/>
+its giving the lbierty to upload .php extensuon wala image which shouldnt happen na at the first place <br/>
+so we uploaded a php file and thus got a reverse shell on the system<br/>
+<img src="image 18.png" /><br/>
+<br/>
+thus arent high level user na <br/>
+easiest way is to search the os for priveleg escalations and all<ul><li style="list-style-type: none"><img src="image 19.png" width="436" height="250" /></li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">history command isnt found </li>
+<li style="list-style-type: none"><img src="image 20.png" /></li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none">bt history is imp as it stores whatever has been typed including passwords</li>
+<li style="list-style-type: none"><img src="image 21.png" /></li>
+</ul>
+<br/>
+sudo -l is for no passwords bt it requires a password to do that <br/>
+the above photo mai monitor.sh can be run na wothout a password<br/>
+<img src="image 22.png" /><br/>
+<br/>
+<img src="image 23.png" /><br/>
+<br/>
+thus there is no personal/stuff folder so hence &nbsp;no monitor.sh folder too<br/>
+so we can create a shell script in these folders and get malicous<br/>
+u should search for personal.zip too<br/>
+4.4.0-104-generic #127-Ubuntu SMP search this for privelege escation<br/>
+LinEnum.sh<br/>
+linuxprivchecker.py<br/>
+these 2 work <br/>
+<br/>
+how to tranfer ??<br/>
+we need to create a malicous file and trasfer it so vcreate folder personal <br/>
+<img src="image 24.png" /><br/>
+<br/>
+aise run monitor.sh<br/>
+<img src="image 25.png" /><br/>
+aother way to file transfer is as follows<br/>
+<img src="image 26.png" /><br/>
+<br/>
+<img src="image 27.png" /><br/>
+<br/>
+bash -i when run with sudo gives u root access directly<br/>
+<img src="image 28.png" /><br/>
+<br/>
+<img src="image 29.png" /><br/>
+<br/>
+bash -i means bash interactive what happens with sudo comand is that u make it executable and running it gives u a bash shell<br/>
+that bash will be run as root coz its executed as sudo na<br/>
+https://netsec.ws/?p=309 <br/>
+imp site hai <br/>
+sudo was run with full directoroy helped us rathert than sudo with just filename<br/>
+<br/>
+<ul><li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

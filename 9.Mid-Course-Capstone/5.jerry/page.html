@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5.Jerry</title>
+</head><body>nmap scan :<br/>
+<img src="image.png" /><br/>
+<br/>
+this teaches us why defult credentilas are so bad<br/>
+this page following isnt good to be kept open like this especially in external networks<br/>
+<img src="image 2.png" width="600" height="257" /><br/>
+<br/>
+since manager app vala button is like login page so go to google and search apache tomcat default credentials<br/>
+https://github.com/netbiosX/Default-Credentials/blob/master/Apache-Tomcat-Default-Passwords.mdown<br/>
+so fire up burpsuite to manually check through these passwords ka list alothough there were siftwares who could do it for us as well<br/>
+&nbsp;<br/>
+for manager app added username and password as tomcat,tomcat respectively<br/>
+<img src="image 3.png" /><br/>
+<br/>
+authorization has == at the end which means its decoded as base 64 so right cl9ick on screen and press go to decoder <br/>
+<img src="image 4.png" /><br/>
+thus we got when in decode tab clicked decode as base 64<br/>
+<br/>
+forwarded it bt it didnt work so try manager,tomcat<br/>
+now send this to intruder as well as to repeater<br/>
+so now u get as follows:<br/>
+<img src="image 5.png" width="750" height="329" /><br/>
+<br/>
+so now in response part 401 unauthorised gives us indication ki inalid credentials the apne<br/>
+now trying to bruteforcing it <br/>
+copying all passwords and usernaes from git and pasting into tomcat,txt<br/>
+<br/>
+base64 format was username:password na so make it in that format now <br/>
+<img src="image 6.png" width="87" height="200" /><br/>
+<br/>
+now we ll do bash scripting<br/>
+<img src="image 7.png" /><br/>
+<br/>
+did for one now runnign a for loop to do for all na <br/>
+<img src="image 8.png" width="400" height="283" /><br/>
+<br/>
+copy these credentials into the intruder <br/>
+<img src="image 9.png" /><br/>
+<br/>
+here sekected that authorization ke baad wala part and clicked add$ wala symbol<br/>
+then went to payload options and pasted the &nbsp;list sniper attack chosen coz attacking one at a time <br/>
+<img src="image 10.png" /><br/>
+<br/>
+the thing is = sign is there which would create issues in it as it url encodes in <br/>
+now start attack <br/>
+burpsuite couldnt catch this username and passowrd :<br/>
+tomcat:s3cret<br/>
+bt now as we know enter it and boom<br/>
+<img src="image 11.png" width="700" height="258" /><br/>
+<br/>
+tomcat application uses war files which are used to upload and deploy <br/>
+<img src="image 12.png" width="800" height="171" /><br/>
+<br/>
+so we can upload a malicious war file and get back a reverse shell <br/>
+as there is a browse option se <br/>
+google abt war file reverse shell<br/>
+also we get info abt os version and all<br/>
+<img src="image 13.png" width="750" height="56" /><br/>
+<br/>
+https://netsec.ws/?p=331<br/>
+again went here <br/>
+<img src="image 14.png" width="700" height="71" /><br/>
+<br/>
+<br/>
+thus ran it in our terminal<br/>
+<img src="image 15.png" /><br/>
+<br/>
+this is the manual way not the metasploit way <br/>
+<img src="image 16.png" /><br/>
+<br/>
+and now press deploy<br/>
+<img src="image 17.png" /><br/>
+<br/>
+we got this now go to /shell and boom<br/>
+<img src="image 18.png" /><br/>
+<br/>
+<img src="image 19.png" /><br/>
+<br/>
+so still in limited flexibility so lets see how to imporve upon the shell and stuff(coz shell u got is windows sshell so stuff like hashdump and all wouldnt work na )<br/>
+we ll use metaploit<br/>
+<img src="image 20.png" /><br/>
+<br/>
+<img src="image 21.png" width="550" height="397" /><br/>
+<br/>
+now u gotta host the web server easiest way is pyhon(so that cna transfer the exe file oform ur hosted web server to that malicous machine)<br/>
+<img src="image 22.png" /><br/>
+thus our root is hosted online<br/>
+<br/>
+<img src="image 23.png" width="650" height="305" /><br/>
+<br/>
+so the shell is now hosted <br/>
+so to transfer files to windows there is a tool out there bt now the defeneder picks it up <br/>
+so still works on assessment<br/>
+<br/>
+wget use kar sakte hai here user certutil<br/>
+<br/>
+<img src="image 24.png" /><br/>
+<br/>
+ran sh.exe<br/>
+<img src="image 25.png" /><br/>
+<br/>
+<img src="image 26.png" /><br/>
+<br/>
+and we got it <br/>
+in rela world it wuld be easily ppicked up<br/>
+<img src="image 27.png" /><br/>
+<br/>
+this was the improvement which we coulsnt get through earlier wala shell na <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

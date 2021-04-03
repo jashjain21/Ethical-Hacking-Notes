@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enumerating SMB</title>
+</head><body>now that &nbsp;we have poerformed enumeration on port 80 and 443 <br/>
+we ll now do on port 139- SMB<br/>
+eg u access a drive like c drive and ur co-workers can see ur file shared and all<br/>
+eg u scan something and it appears on your scan foilder in laptop thats SMB<br/>
+used in work and internal environments<br/>
+<br/>
+MS17010:the best one hai for exploit <br/>
+our NMAP results gave us host script results:<br/>
+<img src="image.png" /><br/>
+this is some sort of enumeration done for us by nmap<br/>
+SMB2:means shayad running version 2<br/>
+so look for version information'<br/>
+<br/>
+we ll try to connect to machine and see if file transfer mai malicious files there or not <br/>
+we ll run metasploit:exploitation framework hai <br/>
+<br/>
+<img src="image 2.png" width="510" height="150" /><br/>
+thus see its written 1096 auxillary which means thats for scanning and enumeration so it does that too and they are good<br/>
+post modules do post exploitation say we get shell in a machine we can then do stuff in post <br/>
+<br/>
+payloads covered later ,also metasploit venom(msfvenom) will be covered later on which willbe used to build payloads out for our own shell<br/>
+we wrote:search smb<br/>
+got:<br/>
+<img src="image 3.png" width="579" height="150" /><br/>
+so many results<br/>
+<img src="image 4.png" /><br/>
+1st word auxillary tells us the kind of modules na so here its enumeration ke liye<br/>
+2nd word tells us the action it will take<br/>
+we are after version information<br/>
+<img src="image 5.png" /><br/>
+ye mila na <br/>
+<img src="image 6.png" width="571" height="250" /><br/>
+RHOSTS:means remote hosts-its the victim we are attacking<br/>
+LHOSTS:means local hosts<br/>
+if it was RHOST instead means u can import only 1 host <br/>
+here we have RHOSTS: so can put /24 notation (cidr notation) and try to sweep a range <br/>
+bt here we 're just attaking 1machine na<br/>
+domain ,user ,pass of that machne u dont have na so leave that all<br/>
+<img src="image 7.png" /><br/>
+we got na samba 2.2.1a<br/>
+we ll later do exploitation on these all versions<br/>
+-----------------<br/>
+now using new tool called smbclient:will try to conect to the file share thats out there<br/>
+and thus we can see whats going on there<br/>
+imp link<br/>
+https://www.reddit.com/r/oscp/comments/fg956k/kali2020_htb_smbclient_protocol_negotiation/<br/>
+<br/>
+<img src="image 8.png" /><br/>
+thus we did connect to it na matlab &nbsp;to the file trandsfer<br/>
+press enter as uu dont know its passwoord<br/>
+<img src="image 9.png" width="450" height="157" /><br/>
+the $ wale arent vlauable to us as they are IPC<br/>
+bt still the admin wala is imp to us so lets connect ot that<br/>
+<img src="image 10.png" /><br/>
+thus its not letting us connect<br/>
+&nbsp;<br/>
+lets try if IPC$ works or not <br/>
+<img src="image 11.png" /><br/>
+so it connenected<br/>
+typpe help to see options<br/>
+<img src="image 12.png" width="400" height="230" /><br/>
+now lets try ls to list the stuff<br/>
+<img src="image 13.png" /><br/>
+so its like a dead end now<br/>
+hence press exit<br/>
+so this time we couldnt connect to it <br/>
+focus on smb in active directory part <br/>
+<br/>
+now we ll do brief enumeration on ssh<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

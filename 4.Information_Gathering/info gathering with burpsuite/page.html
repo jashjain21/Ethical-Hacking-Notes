@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>info gathering with burpsuite</title>
+</head><body>its a web proxy means it has ability to intersect traffic for us.<br/>
+<img src="image.png" width="608" height="400" /><br/>
+<br/>
+click next-start burp<br/>
+then open firefox<br/>
+go to preferences -settings-select manual proxy config-127.0.0.1-port 8080<br/>
+<br/>
+later would do this with a tool called foxyproxy<br/>
+go to https://burp<br/>
+click on ca certificate and save the file<br/>
+<br/>
+go to prefeernces-privacy and security -at end click on view certificates-click on import and import the ca certificate file<br/>
+after doing this and going to tesla ki site it takes time to load as we are intercepting some of the traffic<br/>
+<img src="image 2.png" width="960" height="350" /><br/>
+&nbsp;then go in target tab and there when u click on any thing on tesla page see its stuff in target u will see in response tab so much information<br/>
+<img src="image 3.png" width="547" height="250" /><br/>
+<br/>
+zooming in :<br/>
+<img src="image 4.png" /><br/>
+we get to server name which is imp on assessment:<br/>
+&nbsp;bt all thsi was still passive scannning for active scanning go to burpsuitepro<br/>
+</body></html>

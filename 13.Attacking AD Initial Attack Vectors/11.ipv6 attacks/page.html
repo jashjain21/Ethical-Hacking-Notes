@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>11.IPv6 attacks</title>
+</head><body>Mainly we ll talk abt dns takeovers via ipv6<br/>
+its another form of relaying bt its more reliable<br/>
+<br/>
+ususally networks on a computer use only ipv4 eg for windows <br/>
+ipv6 is also turned on bt whos doing dns for it ??<br/>
+actually its nobody<br/>
+so we can set up an attakcer machine and listen to all &nbsp;messages that come through attakcer will say i m dns<br/>
+so give all ipv6 traffic to me and i ll pass it for u <br/>
+<br/>
+so we can get access to domain controller via ldap or via smb <br/>
+so that machine jiska ipv6 we are using doesnt have to be administrator <br/>
+<br/>
+using this we can also create another machine loke a blog or somethingh <br/>
+we can wait for someone tp login to the netwokr and that comes us to us in ntlm <br/>
+and we ldap relay them to domain controller and it creates an acc for us <br/>
+<br/>
+we ll use mitm6 and combine that to ntlmrelayx<br/>
+<br/>
+this is also very hard to attack<br/>
+</body></html>

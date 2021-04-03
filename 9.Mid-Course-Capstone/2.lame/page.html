@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2.Lame</title>
+</head><body>Instead of nmap always could also use masscan for like just finding the ports and then nmap -A on those<br/>
+another approach is to remove -p-<br/>
+another approach is to remove -A<br/>
+using masscan :<br/>
+<img src="image 17.png" width="450" height="88" /><br/>
+<br/>
+<img src="image.png" /><br/>
+This anonymous login allowed shouldnt have been allowed in the first place<br/>
+Although port 21 isnt exploutable on its own bt the version might be <br/>
+Another found-ssh<br/>
+<img src="image 2.png" /><br/>
+When with the option of exploiting port 80 and port 22 first try with port 80<br/>
+<img src="image 3.png" width="450" height="182" /><br/>
+<br/>
+<img src="image 4.png" /><br/>
+below pic would give u the most accurate result for OS detection<br/>
+<br/>
+<img src="image 5.png" /><br/>
+THus smb is open lets exploit it <br/>
+<img src="image 6.png" /><br/>
+THus smbclien tworked thistime we are behind admin folder na<br/>
+<img src="image 7.png" /><br/>
+Tried &nbsp;initially with tmp(this worked bt aisa anonymous shouldnt have been allowed by the machine so technically its a fault on their side)<br/>
+the oothers didint work out thoough<br/>
+<img src="image 8.png" /><br/>
+<br/>
+THus we knew smb versiion na hence went ot this site <br/>
+https://www.rapid7.com/db/modules/exploit/multi/samba/usermap_script<br/>
+<img src="image 9.png" width="600" height="213" /><br/>
+<br/>
+boom!!<br/>
+<img src="image 10.png" width="550" height="238" /><br/>
+<br/>
+grab root.txt<br/>
+<img src="image 11.png" /><br/>
+how to <br/>
+<img src="image 12.png" width="450" height="127" /><br/>
+<br/>
+we see password &nbsp;na in cat /etc/shadow or some directoy kali has tool called unshadow<br/>
+<img src="image 13.png" /><br/>
+Do like this werein shadow mai put shaodw ki text and in password /etc/passwd ka <br/>
+<br/>
+Now exploting port 21<br/>
+https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor<br/>
+Also do this <br/>
+<img src="image 14.png" /><br/>
+Yaha kuch tha nahi bt u could put a malicoius file here na and also like it would only work when someone actually opened it <br/>
+Kali linux has defualt sha5 12 hash <br/>
+Try to run hashcat on gpu rather coz faster hoga<br/>
+<img src="image 15.png" /><br/>
+He wrote: <b>hashcat64 -m 1800 unshadowed.txt passwords.txt</b><br/>
+where passwords.txt is your fie in ehihc u ve wriiteen potential passwords<br/>
+<img src="image 16.png" /><br/>
+<br/>
+while running on kali use &nbsp;--force at the end<br/>
+<br/>
+explotiing this : <br/>
+<img src="image 18.png" /><br/>
+<br/>
+<img src="image 19.png" /><br/>
+<br/>
+<img src="image 20.png" /><br/>
+<br/>
+so it didint work out <br/>
+now trying with distccd v1 gnu <br/>
+<img src="image 21.png" /><br/>
+it worked !!<br/>
+thus we get low level access (daemon)<br/>
+<br/>
+<br/>
+</body></html>

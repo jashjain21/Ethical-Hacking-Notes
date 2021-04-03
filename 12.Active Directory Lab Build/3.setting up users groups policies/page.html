@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>3.Setting up users groups policies</title>
+</head><body>login in windows server<br/>
+tools-acitve directory Users and computers<br/>
+<img src="image.png" /><br/>
+inside marvel.local we have a bunch of different orgainistational units(ou's)<br/>
+right cick on it click new-organisational unit <br/>
+name it as Groups<br/>
+take all such groups<br/>
+<img src="image 2.png" /><br/>
+<br/>
+out of users accounts and <br/>
+<br/>
+just keep Guest and Adminsitrator in here <br/>
+we saw properties of adminsitrator<br/>
+<img src="image 3.png" /><br/>
+<br/>
+Domain users is someone who can login to the domain <br/>
+so we ll crweate couple of domain users and admins to get an idea hiw they look like<br/>
+<img src="image 4.png" /><br/>
+<br/>
+set poassword as Password1<br/>
+and click on password never explires<br/>
+right click on administrator and click copy to create new user called Tony Stark<br/>
+<br/>
+his password:password2019!@$<br/>
+<br/>
+new normal user :Peter Parker<br/>
+password:Password2<br/>
+<br/>
+now make a fake sql service acc as domain adminsitrator<br/>
+they should not be domain administrator acc ever bt probably 70 percent of times its like this only &nbsp;and we can then attack them <br/>
+<img src="image 5.png" /><br/>
+no space in USer logon name<br/>
+<br/>
+passeord:MYpassword123$<br/>
+<img src="image 6.png" /><br/>
+many people put such password in their descriptipon<br/>
+coz they think only they can read them <br/>
+<img src="image 7.png" /><br/>
+<br/>
+Click on New Share now<br/>
+then smb share quick <br/>
+<br/>
+<img src="image 8.png" /><br/>
+<br/>
+then hit next<br/>
+<img src="image 9.png" /><br/>
+<br/>
+finally thid is what we get<br/>
+most domain controllers have file share <br/>
+and we wnated to open up 139 and 445 so that smb is enabled on our domain controller so that we can attack them <br/>
+<br/>
+now we will create a spn(service principal name)<br/>
+we are setting upl an attakc for kerbersoting <br/>
+that is an attack that attacks servoces <br/>
+so here we wanna attack sql service so we are setting up a spn<br/>
+<br/>
+<img src="image 10.png" /><br/>
+<br/>
+now to make sure it is set <br/>
+<img src="image 11.png" /><br/>
+entered the command and we can see sqlservice has been set <br/>
+run group policy managemnt as administrator<br/>
+<img src="image 12.png" /><br/>
+cick on create gpo<br/>
+<img src="image 13.png" /><br/>
+do this then <br/>
+in this course we disbale the antivirus coz thats a very long process <br/>
+and it changes every few months<br/>
+right cick on Disable Windows Defender <br/>
+and ckick edit <br/>
+<img src="image 14.png" /><br/>
+<br/>
+&nbsp;&#09;<img src="image 15.png" /><br/>
+<br/>
+thus defender off<br/>
+and once we join oir pc's tp this domain we will have no defender and that s how we wanna attack them <br/>
+</body></html>
