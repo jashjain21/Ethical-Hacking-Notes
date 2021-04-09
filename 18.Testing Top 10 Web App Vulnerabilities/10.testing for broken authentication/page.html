@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10.Testing for broken authentication</title>
+</head><body>logout of Juice Shop and go to login page<br/>
+<img src="image.png" /><br/>
+this is good policy as it says could be invalid email or password like<br/>
+if it just said invalid password then u know that email is correct like(this is username enumeration)<br/>
+<br/>
+go to forgot password<br/>
+<img src="image 2.png" /><br/>
+<br/>
+thus the securtiy question isnt coming over<br/>
+try with diff eail like <br/>
+<img src="image 3.png" /><br/>
+thus it was a valid email address and hence aaaya this is a finding<br/>
+even this is bad still coz dfirectly secirtuy ques its giving and an easy one like mothers middle name<br/>
+<br/>
+lets look at session fixation<br/>
+<img src="image 4.png" /><br/>
+<img src="image 5.png" /><br/>
+password test1234<br/>
+after registwering an dbefore login intercept the request<br/>
+<img src="image 6.png" /><br/>
+we got the cookie<br/>
+now send to repater turn intercept off<br/>
+then login<br/>
+now turn intercept on and refresh the page just<br/>
+<img src="image 7.png" /><br/>
+there isnt any session fixation since at the stasrt there wasnt any cookie or token to start with so now we got a cookie hence no session fixation<br/>
+<img src="image 8.png" /><br/>
+sent it to repeater we got 304 not modified<br/>
+turn intercept off and logout then turn uintercept on anfd refresh the page<ul><li style="list-style-type: none"><img src="image 9.png" /></li>
+<li style="list-style-type: none">thus there wasnt any cookie or token in here which is good practice</li>
+</ul>
+jo session token mila tha na could send it the next time u log in to see whether it allows or not<br/>
+so there isnt session fixation here <br/>
+<br/>
+so multi &nbsp;factor authentication bhi dekh ke rakhna <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

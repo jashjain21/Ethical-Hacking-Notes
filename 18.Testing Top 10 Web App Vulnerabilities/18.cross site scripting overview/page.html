@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>18.Cross Site Scripting overview</title>
+</head><body>Also called as XSS <br/>
+there are maily 3 types of it <br/>
+1.Reflected:INkect something maliciois u get back a popup it doesnt stay on the server<br/>
+2.Stored o persistent XXS:Opposite of 1 its stored on the server even if we leave and come back<br/>
+3.DOM XSS:when u explout dom its client side.<br/>
+<br/>
+lets say a file called as <br/>
+index.php<br/>
+<br/>
+&lt;?php<br/>
+$username= $ GET['username']<br/>
+echo "Hi $username!";<br/>
+?&gt;<br/>
+<br/>
+and u call index.php?username="JAsh"<br/>
+o/p will be Hi Jash!<br/>
+<br/>
+bt what iif we had index.php?username=&lt;script&gt;alert(1)&lt;/script&gt;<br/>
+&nbsp;this will run js as we declare &nbsp;dwe are using script tags and would display an alert on the web pafe and would say 1 :this is reflected xss<br/>
+<br/>
+blog post mai lets say comment mai u leave something like this so whenever anyone comes on the site this is issued<br/>
+as its stored on the server side<br/>
+<br/>
+reflected and dom require social engineering that is someda has to oepn that malicuos link and then we can point something to us<br/>
+<br/>
+if its in stored we dont have to do anything we can just steal the cookie with that<br/>
+keylogging dos can also be done<br/>
+<br/>
+</body></html>
